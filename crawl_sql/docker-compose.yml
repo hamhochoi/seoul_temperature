@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: Temperature
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - temperature-mysql-data:/var/lib/mysql
+  crawl_sql_1:
+    build: service
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: Temperature
+#  crawl_sql_2:
+#    build: service
+#    environment:
+#      MYSQL_HOST: mysql
+#      MYSQL_USER: root
+#      MYSQL_PASSWORD: secret
+#      MYSQL_DB: Temperature
+  web-server:
+    build: web_server
+    ports:
+      - "800:80"
+
+volumes:
+      temperature-mysql-data:      
+
+
+
+
