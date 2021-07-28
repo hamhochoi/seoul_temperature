@@ -25,6 +25,15 @@
 SELECT "temperature" FROM "temperature" WHERE ("station" = 'Seoul')
 ```
 
+### Setup PHP web server
+- go to localhost:800 to see 10 most recent Seoul's temperature data.
+
+### To debug services
+- Go to each container by the command:
+```
+docker exec -it <container name> /bin/bash
+```
+
 ### Run Android app
 - Download seoul_temperature.apk to an android phone and install it.
 - Open the app and use.
