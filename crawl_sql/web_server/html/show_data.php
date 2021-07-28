@@ -10,8 +10,9 @@ if (mysqli_connect_errno())
 }
  
 // Select all of our stocks from table 'stock_tracker'
-$sql = "SELECT Time, Temp FROM temperature where Station='Seoul' and Time like '%:00:%' order by Time desc limit 20";
- 
+//$sql = "SELECT Time, Temp FROM temperature where Station='Seoul' and Time like '%:00:%' order by Time desc limit 20";
+$sql = "SELECT Time, Temp FROM temperature where Station='Seoul' order by Time desc limit 20";
+
 // Confirm there are results
 if ($result = mysqli_query($con, $sql))
 {
