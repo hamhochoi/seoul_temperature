@@ -11,10 +11,12 @@
 ### Run MySQL crawler
 - cd crawl_sql
 - docker-compose up -d
+- To turn down service: docker-compose down
 
 ### Run Influx crawler
 - cd crawl_influxb
 - docker-compose up -d
+- To turn down service: docker-compose down
 
 ### Setup Grafana to connect to InfluxDB
 - In Grafana, create data source with host = http://influxdb:8086 (dockername:8086)
