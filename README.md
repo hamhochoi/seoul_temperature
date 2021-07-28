@@ -9,15 +9,24 @@
 - All services are built and run by docker-compose.
 
 ### Run MySQL crawler
-cd crawl_sql
-docker-compose up -d
+- cd crawl_sql
+- docker-compose up -d
 
 ### Run Influx crawler
-cd crawl_influxsb
-docker-compose up -d
+- cd crawl_influxb
+- docker-compose up -d
+
+### Setup Grafana to connect to InfluxDB
+- In Grafana, create data source with host = http://influxdb:8086 (dockername:8086)
+- Create dashboard connect from the above data source. With query inspector: 
+```
+SELECT "temperature" FROM "temperature" WHERE ("station" = 'Seoul')
+```
 
 ### Run Android app
 - Download seoul_temperature.apk to an android phone and install it.
 - Open the app and use.
+
+
 
 Thanks for watching this repo!
