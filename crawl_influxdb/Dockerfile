@@ -19,6 +19,9 @@ RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`cu
 RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 # Set display port as an environment variable
 ENV DISPLAY=:99
+# Set DNS Server
+RUN sh -c "echo 'nameserver 8.8.8.8' >> /etc/resolv.conf" &&\
+     sh -c "echo 'nameserver 8.8.4.4' >> /etc/resolv.conf"
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt

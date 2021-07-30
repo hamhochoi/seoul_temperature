@@ -1,13 +1,17 @@
 from influxdb import InfluxDBClient
 from datetime import datetime
 from datetime import timezone
+import os
 
+INFLUXDB_HOST = os.environ['INFLUXDB_HOST']
+INFLUXDB_ADMIN_USER_PASSWORD = os.environ['INFLUXDB_ADMIN_USER_PASSWORD']
+INFLUXDB_PORT = os.environ['INFLUXDB_PORT']
+INFLUXDB_DB = os.environ['INFLUXDB_DB']
 
 is_connected = False
-
 while (is_connected==False):
 	try:
-		client = InfluxDBClient(host='influxdb', port=8086, username='root', password='root')
+		client = InfluxDBClient(host=INFLUXDB_HOST, port=INFLUXDB_PORT, username=INFLUXDB_ADMIN_USER_PASSWORD, password=INFLUXDB_ADMIN_USER_PASSWORD)
 		#client.create_database('temperature')
 		client.switch_database('temperature')
 		is_connected = True
