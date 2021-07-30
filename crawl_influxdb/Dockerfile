@@ -20,10 +20,11 @@ RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 # Set display port as an environment variable
 ENV DISPLAY=:99
 # Set DNS Server
-RUN sh -c "echo 'nameserver 8.8.8.8' >> /etc/resolv.conf" &&\
-     sh -c "echo 'nameserver 8.8.4.4' >> /etc/resolv.conf"
+RUN sh -c 'echo "nameserver 8.8.8.8" >> /etc/resolv.conf' &&\
+    sh -c 'echo "nameserver 8.8.4.4" >> /etc/resolv.conf'
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .
 CMD python crawl_temperature_influx.py
+#CMD python -c "import time; time.sleep(100)"

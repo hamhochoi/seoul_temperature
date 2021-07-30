@@ -3,10 +3,11 @@ from datetime import datetime
 from datetime import timezone
 import os
 
-INFLUXDB_HOST = os.environ['INFLUXDB_HOST']
-INFLUXDB_ADMIN_USER_PASSWORD = os.environ['INFLUXDB_ADMIN_USER_PASSWORD']
-INFLUXDB_PORT = os.environ['INFLUXDB_PORT']
-INFLUXDB_DB = os.environ['INFLUXDB_DB']
+#INFLUXDB_HOST = os.environ['INFLUXDB_HOST']
+INFLUXDB_HOST = 'localhost'
+INFLUXDB_ADMIN_USER_PASSWORD = 'root' #os.environ['INFLUXDB_ADMIN_USER_PASSWORD']
+INFLUXDB_PORT = 8086 #os.environ['INFLUXDB_PORT']
+INFLUXDB_DB = "temperature" #os.environ['INFLUXDB_DB']
 
 is_connected = False
 while (is_connected==False):
