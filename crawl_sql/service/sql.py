@@ -2,14 +2,20 @@ from datetime import datetime
 from datetime import timezone
 import mysql.connector
 import time
+import os
+
+MYSQL_HOST = "localhost" #os.environ['MYSQL_HOST']
+MYSQL_USER = "root" #os.environ['MYSQL_USER']
+MYSQL_PASSWORD = "secret" #os.environ['MYSQL_PASSWORD']
+MYSQL_DB = "Temperature" #os.environ['MYSQL_DB']
 
 is_connected = False
 while (is_connected == False):
 	try:
 		mydb = mysql.connector.connect(
-		  host="mysql",
-		  user="root",
-		  password="secret"
+		  host=MYSQL_HOST,
+		  user=MYSQL_USER,
+		  password=MYSQL_PASSWORD
 		)
 		is_connected = True
 	except:
