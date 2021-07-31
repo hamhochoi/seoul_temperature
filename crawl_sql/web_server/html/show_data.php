@@ -1,8 +1,12 @@
 <?php
 ini_set('display_errors', 1);
 // Create connection
-$con=mysqli_connect("mysql","root","secret","Temperature");
- 
+$MYSQL_HOST = getenv("MYSQL_HOST");
+$MYSQL_PORT = getenv("MYSQL_PORT");
+
+//$con=mysqli_connect("mysql","root","secret","Temperature");
+$con=mysqli_connect($MYSQL_HOST . ':' . $MYSQL_PORT,"root","secret","Temperature");
+
 // Check connection
 if (mysqli_connect_errno())
 {
